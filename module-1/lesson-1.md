@@ -129,6 +129,17 @@ The video below looks at setting up debugging using the <a href="https://marketp
 
 ---
 
+## React Developer Tools
+
+React Developer Tools is an extension that allows inspection of theReact component hierarchy in the Chrome and Firefox Developer Tools.
+
+An overview of the tools can be found on the browser-specific pages:
+
+-   <a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en" target="_blank">Chrome</a>
+-   <a href="https://addons.mozilla.org/en-US/firefox/addon/react-devtools/" target="_blank">Firefox</a>
+
+---
+
 ## Using images in JSX
 
 The default content in `src/App.js` in a new app contains an example of using an image in JSX.
@@ -224,7 +235,7 @@ This video looks at using props
 
 ## Lesson Task
 
-The lesson task is in <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module1-lesson1" target="_blank">this repo</a>.
+The lesson task is in <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module1-lesson1" target="_blank">this repo</a>, with an example answer on the answer branch.
 
 <!-- There are example answers in the <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module1-lesson1/tree/answers" target="_blank">answers branch</a>. -->
 

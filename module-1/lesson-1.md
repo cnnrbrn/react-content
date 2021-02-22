@@ -1,4 +1,4 @@
-# Lesson 1 - Introduction, configuration and basic types
+# Lesson 1 - Introduction, Components and Props
 
 ## Introduction
 

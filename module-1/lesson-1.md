@@ -235,7 +235,7 @@ This video looks at using props
 
 ## Lesson Task
 
-The lesson task is in <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module1-lesson1" target="_blank">this repo</a>, with an example answer on the answer branch.
+The lesson task is in <a href="https://github.com/NoroffFEU/lesson-task-js-frameworks-module1-lesson1" target="_blank">this repo</a>, with an example answer on the answer branch.
 
 <!-- There are example answers in the <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module1-lesson1/tree/answers" target="_blank">answers branch</a>. -->
 

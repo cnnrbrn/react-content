@@ -58,7 +58,7 @@ When using CSS or Sass you create global styles so need to worry about class nam
 
 When using locally scoped styles, there is no need to worry about name clashes.
 
-<iframe src="https://player.vimeo.com/video/437826097" width="640" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/437826097" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 <a href="https://vimeo.com/437826097/e679370d87" target="_blank">Watch on Vimeo</a>
 

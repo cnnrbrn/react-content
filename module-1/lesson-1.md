@@ -248,6 +248,13 @@ The lesson task is in <a href="https://github.com/NoroffFEU/lesson-task-workflow
 -   The <a href="https://reactjs.org/docs/introducing-jsx.html" target="_blank">offical documentation</a> on JSX.
 -   The <a href="https://reactjs.org/docs/components-and-props.html" target="_blank">offical documentation</a> on Components and Props.
 
+### Watch
+
+(If you need a refresher on ES6 modules - imports and exports)
+
+-   <a href="https://vimeo.com/457199012/f3e2f37cfe" target="blank">Imports and exports with modules</a>
+-   <a href="https://vimeo.com/456346771/61a3fcad19" target="blank">Import and export example</a>
+
 ---
 
 [Go to lesson 2](2)

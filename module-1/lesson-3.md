@@ -4,6 +4,8 @@
 
 The best thing about React components is that they are reusable. Once written, we can simply import them and use them. We can also import components written by other developers.
 
+> The <a href="https://github.com/NoroffFEU/react-with-bootstrap" target="_blank">repo</a> from the lesson.
+
 ---
 
 ## React UI Libraries
@@ -262,3 +264,22 @@ The `exact` prop in the first NavLink makes sure that only when the URL is exact
 ```
 
 Try remove the `exact` prop and you'll see that even if the URL is "/about" or "/contact", the Home link also gets an "active" class.
+
+---
+
+<iframe src="https://player.vimeo.com/video/455457887" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+<a href="https://vimeo.com/455457887/ad045422a5" target="_blank">Watch on Vimeo</a>
+
+<a href="https://github.com/NoroffFEU/react-router-dom" target="_blank">Code from the video</a>
+
+---
+
+### Optional videos
+
+These videos are from the CSS Frameworks that you revisit if you want:
+
+-   <a href="https://vimeo.com/434881041/d81ed48eda" target="_blank">Introduction to React Bootstrap</a>
+-   <a href="https://vimeo.com/437446618/5959c93d64" target="_blank">Introduction to React Bootstrap Part 2</a>
+
+---

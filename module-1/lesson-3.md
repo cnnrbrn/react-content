@@ -277,7 +277,7 @@ Try remove the `exact` prop and you'll see that even if the URL is "/about" or "
 
 ### Optional videos
 
-These videos are from the CSS Frameworks that you revisit if you want:
+These videos are from the CSS Frameworks that you can revisit if you want:
 
 -   <a href="https://vimeo.com/434881041/d81ed48eda" target="_blank">Introduction to React Bootstrap</a>
 -   <a href="https://vimeo.com/437446618/5959c93d64" target="_blank">Introduction to React Bootstrap Part 2</a>

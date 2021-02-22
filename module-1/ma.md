@@ -2,8 +2,6 @@
 
 ## Brief
 
-We are using Github Classroom repos for this assignment.
+The assignment repo is <a href="https://classroom.github.com/a/DTbwPYyy" target="_blank">here</a>.
 
-Follow <a href="https://classroom.github.com/a/hpc-BW9-" target="_blank">this link</a>.
-
-Follow the instructions, keep the repo private and submit the link in Moodle.
+Keep the repo private and submit the link in Moodle.

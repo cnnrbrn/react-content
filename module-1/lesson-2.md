@@ -113,8 +113,8 @@ You will need to use <a href="https://github.com/gsoft-inc/craco" target="_blank
 -   About <a href="https://medium.com/the-non-traditional-developer/beginners-guide-to-tagged-template-literals-in-javascript-202d1805e862" target="_blank">tagged template literals</a>.
 -   About the <a href="https://styled-components.com/docs/basics" target="_blank">basics of Styled Components</a>.
 
-<!-- ---
+---
 
 [Go to lesson 3](3)
 
---- -->
+---

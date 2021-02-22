@@ -166,6 +166,8 @@ export default function Contact() {
 
 Now we need something to navigate around the site. We are going to use React Router.
 
+We'll use code very similar to that found in the <a href="https://reactrouter.com/web/guides/quick-start">quick start guide</a> in the official docs, except we are using it with React Bootstrap components.
+
 ```
 npm i react-router-dom
 ```
@@ -281,5 +283,9 @@ These videos are from the CSS Frameworks that you can revisit if you want:
 
 -   <a href="https://vimeo.com/434881041/d81ed48eda" target="_blank">Introduction to React Bootstrap</a>
 -   <a href="https://vimeo.com/437446618/5959c93d64" target="_blank">Introduction to React Bootstrap Part 2</a>
+
+---
+
+[Go to lesson 4](4)
 
 ---

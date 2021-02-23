@@ -268,7 +268,7 @@ Remember to watch the console to see the lifeccyle methods console logs being ex
 
 <a href="https://vimeo.com/515704511/9ba3540396" target="_blank">Watch on Vimeo</a>
 
-<a href="github.com/NoroffFEU/react-class-component" target="_blank">Code from the video</a>
+<a href="http://github.com/NoroffFEU/react-class-component" target="_blank">Code from the video</a>
 
 ---
 

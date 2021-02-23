@@ -1,4 +1,4 @@
-# Lesson 4 - Class components and Component Methods
+# Lesson 4 - Class components and lifecycle methods
 
 ## Introduction
 

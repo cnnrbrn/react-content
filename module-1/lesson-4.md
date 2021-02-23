@@ -262,6 +262,16 @@ Now we can click on "Second" link, this component will be rendered, `First` will
 
 Remember to watch the console to see the lifeccyle methods console logs being executed.
 
+---
+
+<iframe src="https://player.vimeo.com/video/515704511" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+<a href="https://vimeo.com/515704511/9ba3540396" target="_blank">Watch on Vimeo</a>
+
+<a href="github.com/NoroffFEU/react-class-component" target="_blank">Code from the video</a>
+
+---
+
 ## Conclusion
 
 That is the very basics of state variables and lifecycle methods.

@@ -280,6 +280,14 @@ We will be using only function components going forward, but the lifecycle metho
 
 ---
 
+## Activities
+
+### Read
+
+-   The <a href="https://reactjs.org/docs/state-and-lifecycle.html" target="_blank">offical documentation</a> on State and Lifecycle.
+
+---
+
 [Go to the module assignment](ma)
 
 ---

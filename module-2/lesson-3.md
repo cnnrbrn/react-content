@@ -105,7 +105,7 @@ We'll use React Router again.
 
 > The code from this example is in <a href="https://github.com/NoroffFEU/react-router-url-params-and-single-resource-requests" target="_blank">this repo</a>.
 
-In `src/App.js` we have two routes created with React Router.
+In <a href="https://github.com/NoroffFEU/react-router-url-params-and-single-resource-requests/blob/master/src/App.js" target="_blank">src/App.js</a> we have two routes created with React Router.
 
 ```jsx
 <Route path="/" exact>
@@ -119,7 +119,7 @@ In `src/App.js` we have two routes created with React Router.
 -   "/" - renders the BookList component
 -   "/detail/:id" - renders the BookDetail component. We are creating a URL parameter with this route called "id". We can call this anything. In BookDetail we will retrieve this parameter.
 
-The code in `src/components/books/BookList.js` is very similar to the code from the previous lesson.
+The code in <a href="https://github.com/NoroffFEU/react-router-url-params-and-single-resource-requests/blob/master/src/components/books/BookList.js" target="_blank">src/components/books/BookList.js</a> is very similar to the code from the previous lesson.
 
 The only differences are inside the return:
 
@@ -136,9 +136,9 @@ return (
 
 Here we retrieving the `id`, `title` and `published` properties from the `book` object using object destructuring and then passing them in as props to a component called `BookItem`.
 
-So the map method will produce an array of BookItem components that will be rendered inside the div with the class of "books".
+So the map method will produce an array of `BookItem` components that will be rendered inside the div with the class of "books".
 
-Let's look inside `src/components/books/BookItem.js`:
+Let's look inside <a href="https://github.com/NoroffFEU/react-router-url-params-and-single-resource-requests/blob/master/src/components/books/BookItem.js" target="_blank">src/components/books/BookItem.js</a>:
 
 ```js
 import PropTypes from "prop-types";
@@ -166,7 +166,7 @@ We are using `Link` from React Router to create links that go to the details pag
 
 We have added PropType checks for each prop.
 
-The code in `src/components/books/BookDetail.js` is similar to `BookList` with some noticeable differences:
+The code in <a href="https://github.com/NoroffFEU/react-router-url-params-and-single-resource-requests/blob/master/src/components/books/BookDetail.js" target="_blank">src/components/books/BookDetail.js</a> is similar to `BookList` with some noticeable differences:
 
 ```js
 import { useState, useEffect } from "react";
@@ -269,8 +269,14 @@ We're going to note this again because it keeps happening:
 
 ---
 
----
+## Activities
 
-[Go to lesson 4](4)
+## Read
+
+The official docs:
+
+-   <a href="https://reactjs.org/docs/typechecking-with-proptypes.html" target="_blank">Typechecking With PropTypes</a>
+
+-   <a href="https://reactrouter.com/web/example/url-params" target="_blank">The official React Router URL parameters example</a>
 
 ---

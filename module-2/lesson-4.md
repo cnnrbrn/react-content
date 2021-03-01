@@ -171,8 +171,8 @@ On lines 13 - 15 when call the `useForm` hook, we're passing in the schema as a 
 
 You can find out how to set all the validation rules in the <a href="https://github.com/jquense/yup#api" target="_blank">official docs</a>.
 
-<!-- ---
+---
 
 [Go to the MA](ma)
 
---- -->
+---

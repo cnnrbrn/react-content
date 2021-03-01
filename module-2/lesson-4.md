@@ -179,6 +179,12 @@ If you need to integrate a component from a library like <a href="https://react-
 
 ---
 
+## Lesson Task
+
+The lesson task is in <a href="https://github.com/NoroffFEU/lesson-task-js-frameworks-module2-lesson4" target="_blank">this repo</a>.
+
+---
+
 ## Activities
 
 ## Watch

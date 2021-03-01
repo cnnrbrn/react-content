@@ -269,6 +269,12 @@ We're going to note this again because it keeps happening:
 
 ---
 
+## Lesson Task
+
+The lesson task is in <a href="https://github.com/NoroffFEU/lesson-task-js-frameworks-module2-lesson3" target="_blank">this repo</a>.
+
+---
+
 ## Activities
 
 ## Read

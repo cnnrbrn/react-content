@@ -171,6 +171,24 @@ On lines 13 - 15 when call the `useForm` hook, we're passing in the schema as a 
 
 You can find out how to set all the validation rules in the <a href="https://github.com/jquense/yup#api" target="_blank">official docs</a>.
 
+--
+
+## Integrating inputs from libraries
+
+If you need to integrate a component from a library like <a href="https://react-select.com/" target="_blank">React Select</a> or a date picker, have a look at the <a href="https://react-hook-form.com/get-started#IntegratingControlledInputs" target="_blank">Controlled Inputs example</a> in the official React Hook Form docs.
+
+---
+
+## Activities
+
+## Watch
+
+-   <a href="https://react-hook-form.com/" target="_blank">The official React Hook Form introduction video</a>
+
+## Browse
+
+-   <a href="https://github.com/react-hook-form/react-hook-form/tree/master/examples" target="_blank">The React Hook Form code examples</a>
+
 ---
 
 [Go to the MA](ma)

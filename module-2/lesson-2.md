@@ -244,7 +244,7 @@ One line 41 we provied a value for the `key` prop. Each parent item returned in 
 
 ## Lesson Task
 
-The lesson task is in <a href="https://github.com/NoroffFEU/lesson-task-js-frameworks-module2-lesson2" target="_blank">this repo</a>.
+The lesson task is in <a href="https://github.com/NoroffFEU/lesson-task-js-frameworks-module2-lesson2" target="_blank">this repo</a>, with an example answer on the answer branch.
 
 ---
 

@@ -177,6 +177,8 @@ You can find out how to set all the validation rules in the <a href="https://git
 
 If you need to integrate a component from a library like <a href="https://react-select.com/" target="_blank">React Select</a> or a date picker, have a look at the <a href="https://react-hook-form.com/get-started#IntegratingControlledInputs" target="_blank">Controlled Inputs example</a> in the official React Hook Form docs.
 
+<a href="https://codesandbox.io/s/react-hook-form-controller-079xx?file=/src/index.js" target="_blank">Here</a> is an example form using several library components like React Select, React Date Picker, Auto complete and Material UI components.
+
 ---
 
 ## Lesson Task

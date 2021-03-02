@@ -193,6 +193,10 @@ The lesson task is in <a href="https://github.com/NoroffFEU/lesson-task-js-frame
 
 -   <a href="https://react-hook-form.com/" target="_blank">The official React Hook Form introduction video</a>
 
+## Read
+
+-   <a href="https://reactjs.org/docs/conditional-rendering.html#inline-if-with-logical--operator" target="_blank">Inline If with Logical && Operator</a> in the <a href="https://reactjs.org/docs/conditional-rendering.html" target="_blank">conditional rendering docs</a>.
+
 ## Browse
 
 -   <a href="https://github.com/react-hook-form/react-hook-form/tree/master/examples" target="_blank">The React Hook Form code examples</a>

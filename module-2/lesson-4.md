@@ -165,11 +165,17 @@ In this example we are using the `message` property from each error:
 }
 ```
 
-This message property is the value we set in the schmema (or the default messages).
+This message property is the value we set in the schmema (or the default message if don't set one ourselves).
 
-On lines 13 - 15 when call the `useForm` hook, we're passing in the schema as a resolver. This links the yup validation to the form.
+On lines 13 - 15 when we call the `useForm` hook, we're passing in the schema as a resolver. This links the yup validation to the form.
 
 You can find out how to set all the validation rules in the <a href="https://github.com/jquense/yup#api" target="_blank">official docs</a>.
+
+If you want to use a regular expression to validate a password, for example, use the `string.match` method:
+
+```js
+yup.string().matches(SOME_REGEX_HERE, "The validation message");
+```
 
 --
 

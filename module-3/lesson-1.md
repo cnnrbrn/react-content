@@ -5,11 +5,15 @@ There are two parts to our project:
 -   the API
 -   the frontend
 
-The API we are going to use Wordpress REST API.
+The API we are going to use Wordpress REST API. You can use any installtion of Wordpress, you'll just need to install and configure the JWT plugin and change the API URL.
 
 And we'll use React for the frontend, of course.
 
 These are two entirely separate entities. Do not combine the code for each.
+
+> Although we are using the Wordpress API, the focus is on performing CRUD operations in React. ALL APIs are different, you always have to read their docs to see how to interact with them.
+>
+> Just like you cannot make assumptions about the JSON returned from GET requests, you cannot assume that authorisation techniques and data formatting used with one API will work with another.
 
 ---
 

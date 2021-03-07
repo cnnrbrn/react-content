@@ -1,4 +1,4 @@
-# Lesson 2
+# Lesson 2 - Creating an Axios instance and GET and POST requests
 
 In this lesson we will:
 

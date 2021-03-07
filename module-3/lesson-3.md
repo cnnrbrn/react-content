@@ -1,4 +1,4 @@
-# Lesson 3
+# Lesson 3 - PUT requests
 
 In this lesson we'll:
 
@@ -45,5 +45,9 @@ In this component we'll:
 <a href="https://vimeo.com/520683383/9971e172bb" target="_blank">Watch on Vimeo</a>
 
 <a href="https://github.com/NoroffFEU/react-crud/tree/11-edit-post-form" target="_blank">Code from the video</a>
+
+---
+
+[Go to lesson 2](4)
 
 ---

@@ -1,4 +1,4 @@
-# Lesson 1
+# Lesson 1 - Configuring JWT in Wordpress, env variables, logging in and using the Context API
 
 There are two parts to our project:
 

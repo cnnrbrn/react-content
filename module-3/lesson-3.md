@@ -9,6 +9,8 @@ In this lesson we'll:
 
 ## Creating a list of posts
 
+> <a href="https://github.com/NoroffFEU/react-crud/tree/10-post-list" target="_blank">This section's branch</a>.
+
 In this section we make a GET request to fetch all the posts from Wordpress and display their titles in a list.
 
 We'll link from each post to an Edit Post component, with the id of the post in the URL.
@@ -22,6 +24,8 @@ We'll link from each post to an Edit Post component, with the id of the post in 
 ---
 
 ## Updating a post
+
+> <a href="https://github.com/NoroffFEU/react-crud/tree/11-edit-post-form" target="_blank">This section's branch</a>.
 
 When click on post from the list we'll navigate to the Edit Post component.
 

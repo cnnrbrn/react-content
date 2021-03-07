@@ -11,6 +11,8 @@ And we'll use React for the frontend, of course.
 
 These are two entirely separate entities. Do not combine the code for each.
 
+---
+
 ## Configuring JWT in Wordpress
 
 In order to complete certain API calls like creating or deleting posts or fetching a list of media uploads, we need to be authorised.

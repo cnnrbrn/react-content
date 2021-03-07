@@ -32,7 +32,7 @@ In this component we'll:
 3. Populate the form with values returned from the request
 4. When the form is submitted make a PUT request to update the resource
 
-<img src="/images/react-crud-4.png" style="max-width:600px" />
+<img src="/images/react-crud-4.png" style="max-width:400px" />
 
 ---
 

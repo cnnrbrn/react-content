@@ -2,7 +2,7 @@
 
 In this lesson we will:
 
--   create a hook that returns an instance of Axios that will
+-   create a hook that returns an instance of Axios that will send the JWT in the header of every request
 -   create a component that lists all the media uploads in the Wordpress admin section. This component will be used to a select a featured image for a new post
 -   make a POST request to the Wordpress REST API to create a new post
 

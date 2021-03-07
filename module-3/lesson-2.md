@@ -1,212 +1,154 @@
-# Lesson 2 - Axios, Lodash and date formatting libraries
+# Lesson 2
 
-### Running the code examples
+In this lesson we will:
 
-\*Note: Use a bundler like Parcel to run the examples, e.g. `parcel index.html`
+-   create a hook that returns an instance of Axios that will
+-   create a component that lists all the media uploads in the Wordpress admin section. This component will be used to a select a featured image for a new post
+-   make a POST request to the Wordpress REST API to create a new post
 
-To use `async/await` with Parcel, add the following entry in package.json:
+---
 
-```json
-"browserslist": [
-    "last 1 Chrome version"
-]
-```
+## Creating an Axios instance
 
-<img src="/images/axios-1.png" alt="Using async/await with Parcel" style="max-width: 700px">
+> <a href="https://github.com/NoroffFEU/react-crud/tree/5-axios-instance" target="_blank">This section's branch</a>.
 
-## Axios
+Every time we make a call to the API that requires authorisation we need to send the token in the header.
 
-<a href="https://github.com/axios/axios" target="_blank">Axios</a> is a popular http client, similar to JavaScript's built-in `fetch`.
+We could manually add the token in the header for every call.
 
-```
-npm init -y
-npm install axios
-```
-
-An API call made with `fetch` like this
+Using fetch it would look something like this:
 
 ```js
-// url used for both examples
-const url = "https://jsonplaceholder.typicode.com/posts/1";
+const options = {
+	headeers: { Authorization: `Bearer ${token}` },
+};
 
-// using fetch
-async function callApiWithFetch() {
-	// GET is the default method for fetch
-	const response = await fetch(url);
-	const json = await response.json();
-	console.log(json);
-}
-
-callApiWithFetch();
+fetch("some/url", options);
 ```
 
-Would be written like this using axios:
+With axios it would look like this:
 
 ```js
+const options = {
+	headeers: { Authorization: `Bearer ${token}` },
+};
+
+axios.get("some/url", options);
+```
+
+We'll instead create a custom hook that fetches the token from the context, then adds it to an Axios instance. That way we only have to add the token to the request headers in one place.
+
+We'll also set the base URL so that we don't need to pass the full URL into every request.
+
+In `hooks/useAxios`:
+
+```js
+import { useContext } from "react";
 import axios from "axios";
+import AuthContext from "../context/AuthContext";
 
-// using axios
-async function callApiWithAxios() {
-	const response = await axios.get(url);
-	console.log(response.data);
+const url = process.env.REACT_APP_BASE_URL;
+
+export default function useAxios() {
+	const [auth] = useContext(AuthContext);
+
+	const apiClient = axios.create({
+		baseURL: url,
+	});
+
+	apiClient.interceptors.request.use(function (config) {
+		const token = auth.token;
+		config.headers.Authorization = token ? `Bearer ${token}` : "";
+		return config;
+	});
+
+	return apiClient;
 }
-callApiWithAxios();
 ```
 
-Axios performs automatic transforms of JSON data, whereas fetch is a two-step process: first you request the data, then you transform it to JSON.
+On line 5 we go and ge the URL from the environment configuration file and on line 11 we set it as the base URL of all requests that use this Axios instance.
 
-If you are not going to use Axios-specific features (some of which are listed below) it is maybe not worth loading an extra library to write code that could be handled with fetch.
+On line 16 we add the token to the headers object for each request. We get the token from the `auth` variable that we retrieve from the context on line 8.
 
-Some features of Axios not found in fetch:
+<iframe src="https://player.vimeo.com/video/520531925" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
--   allows cancelling requests
--   built-in support for download progress
--   wider browser support, including Internet Explorer
--   ability to intercept HTTP requests
+<a href="https://vimeo.com/520531925/ed0ff8ce5e" target="_blank">Watch on Vimeo</a>
+
+<a href="https://github.com/NoroffFEU/react-crud/tree/5-axios-instance" target="_blank">Code from the video</a>
 
 ---
 
-There are POST, PUT and DELETE examples in the answers branch of the lesson task.
+## Creating a dropdown of media uploads
+
+> <a href="https://github.com/NoroffFEU/react-crud/tree/6-media-dropdown" target="_blank">This section's branch</a>.
+
+Next we'll create a dropdown (select) of all the media uploads in the Wordpress media section.
+
+The media-related API endpoints are listed in <a href="https://developer.wordpress.org/rest-api/reference/media/" target="_blank">the docs</a>.
+
+Using the Axios instance we created above we'll make a GET request to the `/wp/v2/media` endpoint, which will be added to the base URL set in the `useAxios` hook.
+
+Then we'll loop of the results and create an option for each.
+
+<iframe src="https://player.vimeo.com/video/520542855" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+<a href="https://vimeo.com/520542855/ee9192719f" target="_blank">Watch on Vimeo</a>
+
+<a href="https://github.com/NoroffFEU/react-crud/tree/6-media-dropdown" target="_blank">Code from the video</a>
 
 ---
 
-### Lodash
+# Layout changes and additions
 
-<a href="https://lodash.com/">Lodash</a> is a JavaScript utility library that provides many useful methods to help simpliy your code, with the pay-off being you are loading an extra library into your code with a resultant increase in your code size.
+> <a href="https://github.com/NoroffFEU/react-crud/tree/7-layout-changes" target="_blank">This section's branch</a>.
 
-We could load it directly from a CDN (Content Delivery Network) by using the latest version from <a href="https://www.jsdelivr.com/package/npm/lodash" target="_blank">here</a>:
+Now we're going to add two new routes for the PostList and AddPost components. We'll also update the Heading component to allow it to return different heading elements.
 
-```html
-<script src="link/to/latest/version"></script>
-```
+<iframe src="https://player.vimeo.com/video/520560169" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
-Or you can install it via NPM:
+<a href="https://vimeo.com/520560169/6343becd69" target="_blank">Watch on Vimeo</a>
 
-```
-npm install lodash
-```
-
-You can import all of lodash so that you can use any method like this:
-
-```js
-import _ from "lodash";
-```
-
-For a smaller bundle size import only the methods you are going to use:
-
-```js
-import { orderBy, isEqual, debounce } from "lodash";
-```
-
-You can find details of all Lodash methods in <a href="https://lodash.com/docs">the documentation</a>.
-
-We'll take a look at two useful methods below.
-
-### orderBy
-
-This method will sort a collection (an array or a collection) in either ascending (the default) or descending order.
-
-```js
-import { orderBy } from "lodash";
-
-const products = [
-	{
-		name: "Product A",
-		price: 15.99,
-	},
-	{
-		name: "Product B",
-		price: 8,
-	},
-	{
-		name: "Product C",
-		price: 10.5,
-	},
-	{
-		name: "Product D",
-		price: 4.95,
-	},
-];
-
-const orderedProducts = orderBy(products, ["price"], ["asc"]);
-
-console.log(orderedProducts);
-```
-
-The first argument is the collection to sort, the second argument is an array of keys to sort on, and the third argument determines in which direction to sort.
+<a href="https://github.com/NoroffFEU/react-crud/tree/7-layout-changes" target="_blank">Code from the video</a>
 
 ---
 
-### isEqual
+## Creating a new post
 
-We can use this method to compare objects.
+> <a href="https://github.com/NoroffFEU/react-crud/tree/8-create-post-form" target="_blank">This section's branch</a>.
 
-```js
-const product1 = {
-	name: "Product",
-	price: 5,
-};
+Now we'll add a form in the AddPost component that will create a new post in Wordpress.
 
-const product2 = {
-	name: "Product",
-	price: 5,
-};
-```
+The post-related API endpoints are listed in <a href="https://developer.wordpress.org/rest-api/reference/posts/" target="_blank">the docs</a>.
 
-We can't simply use the comparison operator to check if the object values are the same like we can with primitive values like strings or numbers.
+<iframe src="https://player.vimeo.com/video/520579035" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
-```js
-console.log(product1 === product2);
-// false
-```
+<a href="https://vimeo.com/520579035/666571878e" target="_blank">Watch on Vimeo</a>
 
-If we use the `isEqual` method we will get the results we expect:
+<a href="https://github.com/NoroffFEU/react-crud/tree/8-create-post-form" target="_blank">Code from the video</a>
 
-```js
-console.log(isEqual(product1, product2));
-// true
-```
+---
 
-### debounce
+## Checking for an empty featured media selection
 
-Debounce can be used to delay the execution of a function.
+> <a href="https://github.com/NoroffFEU/react-crud/tree/9-empty-media-check" target="_blank">This section's branch</a>.
 
-If, for example, you have code that responds to a `keyup` event, you might want to not execute the code on every event if it triggered frequently, especially if it is an expensive operation\* like an API call.
+We have issue with our form - the POST request will fail if we don't select a Featured Media.
 
-> An expensive operation is code that when executed might take a long time to run or use lots of resources like memory
+The `featured_media` property is an integer in the API, and the default value of the featured_media select box is an empty string.
+
+We need to send in `null` instead `""` if no media is selected.
 
 ```js
-const input = document.querySelector("input");
-
-function logKey(event) {
-	console.log(event.key);
+if (data.featured_media === "") {
+	data.featured_media = null;
 }
-
-input.onkeyup = debounce(logKey, 500, { leading: true, maxWait: 1000 });
 ```
 
-In the above code the `logKey` function's execution is delayed by 500 milliseonds.
+<iframe src="https://player.vimeo.com/video/520614031" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
--   `leading: true` - execute the function at the beginning of the timeout
--   `maxWait: 1000` - the maximum time function is delayed before it's called
+<a href="https://vimeo.com/520614031/6ca3ae60a2" target="_blank">Watch on Vimeo</a>
 
----
-
-## Moment and date formatting
-
-<a href="https://momentjs.com/" target="_blank">moment.js</a> is a popular date formatting library, with Date formatting in JavaScript being limited
-
-New development of Moment has stopped though, and they (along with Google dev tools) recommend alternatives listed <a href="https://momentjs.com/docs/#/-project-status/recommendations/">here</a>.
-
----
-
-## Lesson Task
-
-There are practice questions in the master branch of <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module3-lesson2" target="_blank">this repo</a>.
-
-There are example answers in the <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module3-lesson2/tree/answers" target="_blank">answer branch</a>.
-
-Try the exercises before checking the solution.
+<a href="https://github.com/NoroffFEU/react-crud/tree/9-empty-media-check" target="_blank">Code from the video</a>
 
 ---
 

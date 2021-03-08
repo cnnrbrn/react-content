@@ -45,6 +45,12 @@ async function handleDelete() {
 }
 ```
 
+## Alert packages
+
+The user experience using a default confirm dialog is not the best.
+
+Packages like <a href="https://www.npmjs.com/package/react-confirm-alert" target="_blank">this</a> will provide a more visually pleasing confirmation interaction.
+
 ---
 
 [Go to the MA](ma)

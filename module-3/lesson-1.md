@@ -179,7 +179,7 @@ Hooks are just functions, but we need to begin the name of our custom hook's wit
 
 Currently in our app if we reload the page our auth state will disappear and we will be in a logged out state. So instead of using `useState` to hold the `auth` variable we'll create a custom hook called `useLocalStorage` to store the auth variable. That way it will be maintained across page refreshes.
 
-And we say "create a custom hook" we really mean copy the code from <a href="https://usehooks.com/useLocalStorage/" target="_blank">this website</a>.
+And when we say "create a custom hook" we really mean copy the code from <a href="https://usehooks.com/useLocalStorage/" target="_blank">this website</a>.
 
 <iframe src="https://player.vimeo.com/video/520388545" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
@@ -189,9 +189,9 @@ And we say "create a custom hook" we really mean copy the code from <a href="htt
 
 ---
 
-<!-- ## Lesson Task
+## Lesson Task
 
-There is a practice question in the master branch of <a href="https://github.com/NoroffFEU/lesson-task-workflow2-module3-lesson1" target="_blank">this repo</a>. -->
+There is a practice question in <a href="https://github.com/NoroffFEU/lesson-task-js-frameworks-module3-lesson1" target="_blank">this repo</a>.
 
 ---
 

@@ -1,4 +1,4 @@
-# Lesson 3 - Dynamic routes
+<!-- # Lesson 3 - Dynamic routes
 
 In this lesson we want to render a game page for each game, according to its `slug` property.
 
@@ -135,4 +135,4 @@ The `paths` array is used to create all the static pages.
 
 [Go to lesson 2](4)
 
----
+--- -->

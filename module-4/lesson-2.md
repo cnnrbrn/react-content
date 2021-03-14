@@ -165,8 +165,8 @@ Open `index.html` and you'll see the HTML for the each game there. It's this fil
 
 This results in much higher page speeds as there is no server-side processing, the browser just gets sent the `index.html` file.
 
----
+<!-- ---
 
 [Go to lesson 3](3)
 
----
+--- -->

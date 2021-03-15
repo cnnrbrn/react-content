@@ -77,7 +77,7 @@ To use it we need to export it from the same file our page function is in.
 In `pages/index.js` replace the existing code with this:
 
 ```js
-import Head from "../components/head";
+import Head from "../components/layout/Head";
 import Layout from "../components/layout/Layout";
 import axios from "axios";
 import { BASE_URL } from "../constants/api";

@@ -35,6 +35,8 @@ Next has built-in Sass support, but you do need to install the `sass` package be
 npm install sass
 ```
 
+Then you can import `.scss` files just like `.css` files.
+
 ---
 
 ## The public folder
@@ -52,6 +54,18 @@ You an also place files like `robot.txt` and favicons in the `public` folder.
 From the offical docs:
 
 > Note: Don't name the public directory anything else. The name cannot be changed and is the only directory used to serve static assets.
+
+---
+
+## The api folder
+
+Vist `http://localhost:3000/api/hello` in your browser.
+
+You will see the json defined in `pages/api/hello.js` is returned.
+
+API routes allow you to build your own API with Next.js.
+
+Find the details in the <a href="https://nextjs.org/docs/api-routes/introduction" target="_blank">official docs</a>.
 
 ---
 

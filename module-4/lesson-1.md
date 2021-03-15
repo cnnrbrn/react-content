@@ -44,11 +44,28 @@ npm run dev -- -p 3001
 
 Create Next app creates three folders for us:
 
--   `components` - all our components apart from our page components will go in here.
--   `pages` - this will hold the components that will serve as the pages in our app.
--   `static` or `public` - if your version of create-next-app calls this folder "static", please rename it to "public". This is where things like images and favicons will go.
+-   `pages` - this will hold the components that will serve as the pages in our app. It also holds a special file called `_app.js` and an `api` folder, both of which will be discussed later.
+-   `styles` - to hold css or scss files
+-   `public` - This is where things like images, favicons and robot.txt will go.
 
-You can delete components/nav.js.
+Create a new folder called `components`. This is where we'll create all our non-page components.
+
+---
+
+## Styles
+
+The `styles` folder contains 2 files:
+
+-   `globals.css` - this is being imported in `pages/_app.js` and the styles from there are being applied to the entire site
+-   `Home.module.css` - a CSS Module file that is being imported in `pages/index.js` and is only being applied to that page/component.
+
+Open `pages/index.js` and you will see the `Home.module.css` import and the styles from it being applied, for example:
+
+```jsx
+<div className={styles.container}>
+```
+
+It is not necessary to use CSS Modules with Next.js.
 
 ---
 
@@ -60,16 +77,19 @@ The file names must match the browser url you want. If you want your About Us pa
 
 Open `pages/index.js`, this is the default page, served at the root path: `http://localhost:3000`
 
-Delete everything inside `index.js` and replace it with the following:
+Change the contents of `index.js` to this:
 
 ```js
 import Link from "next/link";
-import Head from "../components/head";
+import Head from "next/head";
 
-export default function Index() {
+export default function Home() {
 	return (
 		<>
-			<Head title="Next Intro" />
+			<Head>
+				<title>Create Next App</title>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
 
 			<Link href="/about">
 				<a>About</a>
@@ -81,11 +101,11 @@ export default function Index() {
 
 Page components are normal React components.
 
-`Head` is a component provided by `create-next-app` that we can use on each page to create the contents of the HTML `<head>` tags, such as the `title` tag and `description` meta tag. Above we are using the `title` prop to set the title of the index page to "Next Intro". Because Next provides pre-rendered page generation, these values are easier found by search bots, improving your site's SEO.
+We've simplified the JSX and removed the CSS module. We'll just use the global CSS file.
 
-`Head` utilises a component imported from `next/head` to append elements to the `head` tag. We'll use this same component shortly.
+The `Head` component from "next/head" allows us to create the contents of the HTML `<head>` tags, such as the `title` tag and add a favicon link. Because Next provides pre-rendered page generation, values like the title and description are easier found by search bots, improving your site's SEO.
 
-`Link` is a component provided by Next we can use to navigate around our app, similar to `Link` or `NavLink` in React Router. We are setting the `href` prop to `/about` which means clicking the link will navigate to `http://localhost:3000/about`. If you vist that page now you'll be greeted by Next's built-in 404 component.
+`Link` is a component provided by Next we can use to navigate around our app, similar to `Link` or `NavLink` in React Router. We are setting the `href` prop to `/about` which means clicking the link will navigate to `http://localhost:3000/about`. If you visit that page now you'll be greeted by Next's built-in 404 component.
 
 ---
 
@@ -95,12 +115,14 @@ Create the file `pages/about.js` and add the following:
 
 ```js
 import Link from "next/link";
-import Head from "../components/head";
+import Head from "next/head";
 
 export default function About() {
 	return (
 		<>
-			<Head title="About | Next Intro" />
+			<Head>
+				<title>About | Create Next App</title>
+			</Head>
 
 			<Link href="/">
 				<a>Home</a>
@@ -110,7 +132,41 @@ export default function About() {
 }
 ```
 
-We've changed the title in the `Head` component and the `Link` component will take us back to the `index` page. (You may have to reload to see the changes when adding a new page).
+We've changed the title in the `Head` component but we didn't add a favicon link, so now the about page won't have a favicon. We don't want to repeat ourselves by adding the same favicon code on every page so this is a good time to add a reusable component.
+
+The `Link` component will take us back to the `index` page. (You may have to reload to see the changes when adding a new page).
+
+---
+
+## Creating our own Head component
+
+In `components/layout/Head.js`:
+
+```js
+import NextHead from "next/head";
+
+export default function Head({ title = "" }) {
+	return (
+		<NextHead>
+			<title>
+				{title}
+				{title ? " | " : ""}Create Next App
+			</title>
+			<link rel="icon" href="/favicon.ico" />
+		</NextHead>
+	);
+}
+```
+
+We're importing the `Head` component from "next/head" as `NextHead` because we are naming our own component `Head`. We can't have two Heads. Since Head is a default export from "next/head" we can import it as any name we like.
+
+We have a `title` prop with a default empty string value and on line 8 we check if the title is empty. If it is we don't add the `|` to the title.
+
+Now we only have to pass the left side of the title (left of the |) in to the Head component.
+
+This component could easily be extended to include things like a description meta tag.
+
+> For brevity we have not included Prop Type checks but your code should include them.
 
 ---
 
@@ -139,25 +195,32 @@ export default function Layout({ children }) {
 }
 ```
 
-The important things there are the `nav` and that we are rendering the `children` prop. Eveything passed inbetween `<Layout>` and `</Layout>` tags will be rendered there.
+The important things there are the `nav` and that we are rendering the `children` prop. Everything passed inbetween `<Layout>` and `</Layout>` tags will be rendered there.
 
 To see this work import Layout in both `index` and `about`, replace the fragments with `Layout` and remove the `Link` components in both pages - the links will appear on both pages as we are wrapping both pages in `Layout`.
 
 `pages/index.js` now looks like this:
 
 ```js
-import Head from "../components/head";
+import Head from "next/head";
 import Layout from "../components/layout/Layout";
 
-export default function Index() {
+export default function Home() {
 	return (
 		<Layout>
-			<Head title="Next Intro" />
-			<p>Home content</p>
+			<Head />
+
+			<div className="container">
+				<h1>Home page</h1>
+			</div>
 		</Layout>
 	);
 }
 ```
+
+Everything between `<Layout>` and `</Layout>` becomes the `children` prop in the Layout component.
+
+We're not passing a `title` prop into the `<Head>` so it will contain on the default value in the title tag.
 
 ---
 
@@ -165,9 +228,15 @@ export default function Index() {
 
 Next.js uses the App component to initialize pages and we can override it and control the page initialization. Doing this will allow us to, among other things, add global styles.
 
-We currently have no styling in the app.
+Open `pages/_app.js`.
 
-First let's create some basic global styles in `styles/style.css`:
+We're already importing our global CSS file.
+
+```js
+import "../styles/globals.css";
+```
+
+We're going to replace the styles in that file with:
 
 ```css
 body {
@@ -192,17 +261,15 @@ nav a {
 }
 ```
 
-Then create `pages/_app.js` and add:
+Our nav is at least moderately styled now.
 
-```js
-import "../styles/style.css";
+---
 
-export default function MyApp({ Component, pageProps }) {
-	return <Component {...pageProps} />;
-}
-```
+## Activities
 
-Stop and restart the app to see the styles being applied.
+### Read
+
+<a href="https://nextjs.org/docs/basic-features/built-in-css-support" target="_blank">The offfical docs</a> on Next's CSS support.
 
 ---
 

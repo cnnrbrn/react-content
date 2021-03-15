@@ -1,58 +1,68 @@
-# Lesson 4 - DELETE requests
+# Lesson 4
 
-In this lesson we'll add a delete button to the post's edit form.
+## Image optimisation
 
-## Adding a delete button
+Next provides an `Image` component that provides automatic image optimisation.
 
-> <a href="https://github.com/NoroffFEU/react-crud/tree/13-add-delete-buttons" target="_blank">This section's branch</a>.
+To convert a reuglar `img` element to an `Image` component, we only need to
 
-<a href="https://developer.wordpress.org/rest-api/reference/posts/#delete-a-post" target="_blank">The API docs</a> tell us the URL to make the DELETE request to is:
-
-```
-/wp/v2/posts/<id>
+```jsx
+<img src="/path/to/picture.jpg" width="200" height="100" alt="My image">
 ```
 
-<iframe src="https://player.vimeo.com/video/520716356" width="640" height="500" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+becomes
 
-<a href="https://vimeo.com/520716356/8cfb7df74f" target="_blank">Watch on Vimeo</a>
+```jsx
+import Image from 'next/image'
 
-<a href="https://github.com/NoroffFEU/react-crud/tree/13-add-delete-buttons" target="_blank">Code from the video</a>
+<Image src="/path/to/picture.jpg" width="200" height="100" alt="My image">
+```
+
+Optimisations provided by the component include
+
+-   lazy loading (images are only loaded when close to being viewed)
+-   enforced image dimensions which prevents content jumping up and down the screen
+-   preloading for images that are in the initial viewport
+-   serving images in WebP format to browsers that support it. WebP are around 30% smaller in file size than jpegs.
 
 ---
 
-## Adding a confirmation dialog
+## Sass
 
-> <a href="https://github.com/NoroffFEU/react-crud/tree/14-adding-a-confirmation-dialog" target="_blank">This section's branch</a>.
+Next has built-in Sass support, but you do need to install the `sass` package before using it.
 
-At the moment the DELETE request runs as soon as the button is clicked.
-
-We can ask for confirmation from the user before deleting by using a `window.confirm` dialog.
-
-The `handleDelete` function inside `DeletePostButton` now looks like this:
-
-```js
-async function handleDelete() {
-	const confirmDelete = window.confirm("Delete this post?");
-
-	if (confirmDelete) {
-		try {
-			await http.delete(url);
-			history.push("/dashboard/posts");
-		} catch (error) {
-			setError(error);
-		}
-	}
-}
+```
+npm install sass
 ```
 
-## Alert packages
+---
 
-The user experience using a default confirm dialog is not the best.
+## The public folder
 
-Packages like <a href="https://www.npmjs.com/package/react-confirm-alert" target="_blank">this</a> will provide a more visually pleasing confirmation interaction.
+Static images, for example ones whose URLs don't come from an API call, can be placed in the `public` folder.
+
+Their `src` attribute then begins with `/` and exludes the word "public"
+
+```jsx
+<img src="/images/my-image.png" />
+```
+
+You an also place files like `robot.txt` and favicons in the `public` folder.
+
+From the offical docs:
+
+> Note: Don't name the public directory anything else. The name cannot be changed and is the only directory used to serve static assets.
 
 ---
+
+## Activities
+
+The official docs contain an <a href="https://nextjs.org/learn/basics/create-nextjs-app" target="_blank">interactive tutorial</a> that covers the basics of Next.
+
+---
+
+<!-- ---
 
 [Go to the MA](ma)
 
----
+--- -->

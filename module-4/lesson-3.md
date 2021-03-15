@@ -1,4 +1,8 @@
-<!-- # Lesson 3 - Dynamic routes
+# Lesson 3 - Dynamic routes
+
+> The code in this lesson follows that in the previous lesson. The final code is on <a href="https://github.com/NoroffFEU/next-introduction/tree/3-dynamic-routes" target="_blank">this branch</a>.
+
+---
 
 In this lesson we want to render a game page for each game, according to its `slug` property.
 
@@ -119,7 +123,7 @@ Lines 1 - 9 is the page component that receives the `game` prop.
 
 One line 16 - 20 in the `getStaticPaths` an API call to the same URL we called in `index.js` is made. We want to get all the slug properies from the array of games so first we need to get that games array.
 
-On lines 23 - 25 we create a an array of objects with a params property.
+On lines 23 - 25 we create a an array of objects each with a params property.
 
 Look at the output of the console.log on line 17 (in the terminal/command line not the browser):
 
@@ -129,10 +133,28 @@ Look at the output of the console.log on line 17 (in the terminal/command line n
 ...
 ```
 
-The `paths` array is used to create all the static pages.
+Each item in the `paths` variable gets passed into `getStaticProps` function on line 35.
+
+On line 36 the `slug` property is used to create a URL to fetch a single game.
+
+This game is then passed as a prop to the `Game` component on lines 49 - 51.
 
 ---
 
-[Go to lesson 2](4)
+## Viewing the statically generated files
 
---- -->
+Run the build command again
+
+```
+npm run build
+```
+
+If you now look inside the `.next/server/pages/game` folder you will see all the generated files with the slug as the file name.
+
+<img src="/images/next-dynamic-routes-3.png" style="max-width: 600px">
+
+---
+
+[Go to lesson 4](4)
+
+---

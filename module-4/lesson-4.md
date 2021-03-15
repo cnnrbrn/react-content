@@ -55,6 +55,28 @@ From the offical docs:
 
 ---
 
+## Deploying a Next app
+
+Two of the most popular ways of deploying a Next app are using Vercel and Netlify.
+
+#### Vercel
+
+<a href="https://vercel.com/" target="_blank">Vercel</a> (formerly Zeit) is the company that makes Next so it provides the easiest method of deployment. The steps are documented <a href="https://nextjs.org/docs/deployment" target="_blank">here</a>.
+
+#### Netlify
+
+The <a href="https://netlify.com" target="_blank">Netlify</a> steps are:
+
+-   Login with your Github account
+-   Select the "Authorise netlify" button
+-   Select the "New site from Git" button
+-   Select Github from the list of providers
+-   Decide if you want Netlify to have access to all your repositories or select repositories, the hit the "Install" button
+-   In the "Basic build settings", set the Build command to `next build && next export` and the Publish directory to `out`
+-   Hit the "Deploy site" button
+
+---
+
 ## Activities
 
 The official docs contain an <a href="https://nextjs.org/learn/basics/create-nextjs-app" target="_blank">interactive tutorial</a> that covers the basics of Next.

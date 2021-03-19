@@ -25,6 +25,18 @@ Optimisations provided by the component include
 -   preloading for images that are in the initial viewport
 -   serving images in WebP format to browsers that support it. WebP are around 30% smaller in file size than jpegs.
 
+#### Adding optimisation for external images
+
+To enable optimistation for images that come from APIs, add an `images` property and the domains you are using to a `domains` array in `next.config.js`.
+
+```js
+module.exports = {
+	images: {
+		domains: ["example.com"],
+	},
+};
+```
+
 ---
 
 ## Sass

@@ -20,7 +20,7 @@ Using fetch it would look something like this:
 
 ```js
 const options = {
-	headeers: { Authorization: `Bearer ${token}` },
+	headers: { Authorization: `Bearer ${token}` },
 };
 
 fetch("some/url", options);
@@ -30,7 +30,7 @@ With axios it would look like this:
 
 ```js
 const options = {
-	headeers: { Authorization: `Bearer ${token}` },
+	headers: { Authorization: `Bearer ${token}` },
 };
 
 axios.get("some/url", options);
